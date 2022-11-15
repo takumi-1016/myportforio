@@ -1,0 +1,22 @@
+<div class="background">
+  <div class="main-frame">  
+    <div class="main-frame-top">
+      <h3><%= @team.team_name%>の掲示板</h3>
+    </div>
+    <div class="comment-search">
+      <%= search_form_for @q, url: team_teamboard_path(@team), class: "search-form" do |f| %>
+        <%= f.text_field :post_comments_comment_or_post_comments_user_user_name_cont, class: "search-input", placeholder:"キーワードを入力"%>
+        <%= button_tag(type: "submit", id: "search-btn") do %>
+          検索
+        <% end %>
+      <% end %>
+    </div>
+    <%= render partial: 'shared/thread/post_title-show', collection: @post_titles, as: :title %>      
+    <%=paginate @post_titles%>
+  </div>
+</div>
+
+
+
+
+

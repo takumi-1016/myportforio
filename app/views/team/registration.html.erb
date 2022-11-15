@@ -1,0 +1,21 @@
+<div class="background">
+  <div class="main-frame">
+    <h1>チーム認証</h1>
+    <p>チームに参加するにはチーム認証が必要です。</p>
+    <p>チーム認証IDはチーム作成時に設定した半角5文字のIDです。</p>
+    <p>チームに所属しているユーザーはマイチームページで確認できます。</p>
+    <%= form_with model: @user, url: team_team_certification_path, local: true do |f| %>
+      <div class="form-item">
+        <%= f.text_field :certification_id, autofocus: true, placeholder: "#{@team.team_name}のチーム認証ID(半角５文字)を入力" %>
+      </div>
+      <div class="button-panel">
+        <%= f.submit "チーム認証を行い、#{@team.team_name}に参加する", class:"button" %>
+      </div>
+    <% end %>
+    <div class="form-footer">
+      <%= link_to 'チーム一覧', teams_path %>
+    </div>
+  </div>
+</div>
+
+

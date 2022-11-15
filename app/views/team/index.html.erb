@@ -1,0 +1,35 @@
+<div class="background">
+  <div class="teams-index-box">
+    <div class="teams-index-title">
+      <h1>All teams</h1>
+    </div>
+    <div class="teams">
+      <% @teams.each do |team| %>
+        <div class="team">
+          <%= link_to team_path(team.id), class: 'link' do %>
+            <div class="team-icon-index">
+              <%= image_tag team.team_image, alt: 'チームアイコン' %>
+            </div>
+            <div class="team-name-index">
+              <p><%= team.team_name %><p>
+            </div>
+          <% end %>
+          <% if @user.certification_id && @user.team_id%>
+            <% if @user.team.id == team.id && @user.certification_id == team.certification_id %>
+              <%= link_to 'マイチーム', myteam_path, class: "teamboardlink"%>
+            <% else %>
+              <%= link_to 'このチームの掲示板を見る', team_teamboard_path(team.id), class: "teamboardlink"%>
+            <% end %>
+          <% else %>
+            <%= form_with model: @user, url: teamIDregistration_path, local: true do |f| %>
+              <%= f.hidden_field :team_id, value: team.id %>
+              <div class="team-registration">
+                <%= f.submit" このチームに参加する", class: "button" %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="background">
+  <div class="main-frame">
+    <%= form_with model: @team, data: { confirm: '上記の内容でチームプロフィールを更新しますか？' } do |f| %>
+    <div class="profile-box">
+      <div class="profile-icon">  
+        <%= image_tag @team.team_image, alt: 'チームアイコン' %>
+        <div class="form-item">
+          <%= f.label :team_image %>
+          <%= f.file_field :team_image %>
+        </div>
+      </div>
+      <div class="form-item">
+        <%= f.label :team_name %><br>
+        <%= f.text_field :team_name %>
+      </div>
+      <div class="form-item">
+        <%= f.label :team_profile %><br>
+        <%= f.text_field :team_profile %>
+      </div>
+    </div>
+    <div class="button-panel">
+      <%= f.submit "チームプロフィールを更新する", class:"button" %>
+    </div>   
+    <% end %>
+  </div>
+</div>     
+
