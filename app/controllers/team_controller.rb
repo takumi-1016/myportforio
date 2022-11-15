@@ -13,13 +13,13 @@ class TeamController < ApplicationController
 
   def myteam
     if @user.certification_id
-      if  @user.certification_id ==  @user.team.certification_id
+      if @user.certification_id == @user.team.certification_id
         redirect_to team_path(@user.team.id)
       else
-        redirect_to teams_path, notice:"チーム認証IDを確認しているチームに参加できます。また、チームを作成して参加することもできます。"
+        redirect_to teams_path, notice: 'チーム認証IDを確認しているチームに参加できます。また、チームを作成して参加することもできます。'
       end
     else
-      redirect_to teams_path, notice:"チーム認証IDを確認しているチームに参加できます。また、チームを作成して参加することもできます。"
+      redirect_to teams_path, notice: 'チーム認証IDを確認しているチームに参加できます。また、チームを作成して参加することもできます。'
     end
   end
 
@@ -31,17 +31,13 @@ class TeamController < ApplicationController
         @tags = Tag.all
         @post_title = PostTitle.new(post_title_params)
         @post_comment = PostComment.new(post_comment_params)
-        if @post_comment.save
-          redirect_to myboard_path, notice:"コメントを投稿しました。"
-        end
-        if @post_title.save
-          redirect_to myboard_path, notice:"スレッドを作成しました。"
-        end
+        redirect_to myboard_path, notice: 'コメントを投稿しました。' if @post_comment.save
+        redirect_to myboard_path, notice: 'スレッドを作成しました。' if @post_title.save
       else
-        redirect_to teams_path, notice:"チーム認証IDを確認しているチームに参加できます。また、チームを作成して参加することもできます。"
+        redirect_to teams_path, notice: 'チーム認証IDを確認しているチームに参加できます。また、チームを作成して参加することもできます。'
       end
     else
-      redirect_to teams_path, notice:"チーム認証IDを確認しているチームに参加できます。また、チームを作成して参加することもできます。"
+      redirect_to teams_path, notice: 'チーム認証IDを確認しているチームに参加できます。また、チームを作成して参加することもできます。'
     end
   end
 
@@ -59,10 +55,10 @@ class TeamController < ApplicationController
       @post_titles = @q.result(distinct: true).page(params[:page]).per(6)
     end
   end
-  
+
   def new
     if current_user.certification_id
-      redirect_to user_path(current_user.id), notice:"すでにチームに参加しています。チーム作成の際はマイページ→プロフィール編集からチームを退会してください。"
+      redirect_to user_path(current_user.id), notice: 'すでにチームに参加しています。チーム作成の際はマイページ→プロフィール編集からチームを退会してください。'
     else
       @team = Team.new
     end
@@ -71,47 +67,46 @@ class TeamController < ApplicationController
   def create
     @team = Team.new(team_params)
     if @team.save
-      redirect_to team_registration_path(@team), notice:"チームを作成しました。チーム認証IDに”#{@team.certification_id}”を入力してチームに参加してください。。"
+      redirect_to team_registration_path(@team), notice: "チームを作成しました。チーム認証IDに”#{@team.certification_id}”を入力してチームに参加してください。。"
     else
-      flash[:alert] = "必須項目に入力してください"
-      render "new"
+      flash[:alert] = '必須項目に入力してください'
+      render 'new'
     end
   end
 
   def registration
     @team = Team.find(params[:team_id])
-    if  @user.team_id == @team.id
-    else
-      redirect_to teams_path, notice:"#{"チームに参加する"}ボタンからチーム認証を行ってください。"
-    end
+    return unless @user.team_id == @team.id
+
+    redirect_to teams_path, notice: 'チームに参加するボタンからチーム認証を行ってください。'
   end
 
   def team_certification
     @team = Team.find(params[:team_id])
-    if @user.update(user_params) 
+    if @user.update(user_params)
       if @team.certification_id == @user.certification_id
-        redirect_to team_path(@team), notice:"チーム認証が完了し、#{@team.team_name}に参加しました"
+        redirect_to team_path(@team), notice: "チーム認証が完了し、#{@team.team_name}に参加しました"
       else
-        @user.update(:certification_id => nil)
-        @user.update(:team_id => nil)
-        redirect_to teams_path, alert:"チーム参加IDが異なります。#{"チームに参加する"}ボタンからもう一度チーム認証を行ってください。"
+        @user.update(certification_id: nil)
+        @user.update(team_id: nil)
+        redirect_to teams_path, alert: 'チーム参加IDが異なります。チームに参加するボタンからもう一度チーム認証を行ってください。'
       end
     else
-      render team_team_certification_path, notice:"#{"チームに参加する"}ボタンからチーム認証を行ってください。"
-    end   
+      render team_team_certification_path, notice: 'チームに参加するボタンからチーム認証を行ってください。'
+    end
   end
 
   def edit
-    unless (@user.team.id == @team.id && @user.certification_id == @team.certification_id)
-      redirect_to team_path(@team)
-    end
+    return if @user.team.id == @team.id && @user.certification_id == @team.certification_id
+
+    redirect_to team_path(@team)
   end
 
   def update
     if @team.update(team_params)
-        redirect_to team_path
+      redirect_to team_path
     else
-        render "show"
+      render 'show'
     end
   end
 
@@ -120,9 +115,11 @@ class TeamController < ApplicationController
   def set_team
     @team = Team.find(params[:id])
   end
+
   def set_user
     @user = current_user
   end
+
   def search
     @q = Post_.ransack(params[:q])
   end
@@ -130,14 +127,16 @@ class TeamController < ApplicationController
   def team_params
     params.require(:team).permit(:team_name, :team_profile, :team_image, :certification_id)
   end
+
   def user_params
     params.require(:user).permit(:team_id, :certification_id)
   end
+
   def post_comment_params
     params.permit(:comment, :user_id, :team_id, :post_title_id, :private)
   end
+
   def post_title_params
     params.permit(:title, :user_id, :team_id, :private)
   end
-
 end
