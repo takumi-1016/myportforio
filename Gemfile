@@ -48,3 +48,16 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #add gem by myself
 gem 'devise'
+gem 'devise-i18n'
+gem 'net-imap'
+gem 'net-pop'
+gem 'net-smtp'
+gem 'jquery-rails'
+gem 'bootstrap'
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+gem "aws-sdk-s3", require: false
+gem 'kaminari'
+gem 'kaminari-i18n'
+gem 'ransack'
+gem 'font-awesome-sass'
