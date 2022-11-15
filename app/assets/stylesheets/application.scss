@@ -13,9 +13,7 @@
  *= require_tree .
  *= require_self
  */
-
-
- 
  @import "bootstrap";
  $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
  @import "setting/reset";
+ @import "partial/frame";
