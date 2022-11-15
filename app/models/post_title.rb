@@ -1,0 +1,2 @@
+class PostTitle < ApplicationRecord
+end
