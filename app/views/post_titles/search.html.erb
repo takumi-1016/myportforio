@@ -1,0 +1,22 @@
+<div class="background">
+  <div class="main-frame">
+    <div class="all-tags"> 
+      <details>
+        <summary>全てのタグ（<%=@tags.count%>）を見る</summary>
+        <div class="thread-option">
+          <% @tags.each do |tag|%>
+            <div class="thread-tag">
+              <%= link_to tag_search_path(tag_id: tag.id), class: 'link' do %>
+                <%=tag.name %>
+                <%="(#{tag.post_titles.count})" %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </details>
+    </div>
+    <h3>タグが#<%=@tag.name %>の投稿一覧</h3>
+    <%= render partial: 'shared/thread/post_title-show', collection: @post_titles, as: :title %>
+    <%=paginate @post_titles%>
+  </div>
+</div>

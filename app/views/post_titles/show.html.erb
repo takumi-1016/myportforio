@@ -1,0 +1,44 @@
+<div class="background">
+  <div class="main-frame">
+    <div class="thread">
+      <div class="thread-imfomation">
+        <div class="thread-date">
+          作成日：<%= @post_title.created_at.to_s(:datetime_jp) %>
+        </div>
+        <div class="thread-member">
+          <%= link_to user_path(@post_title.user.id)  do %>
+            作成者：<%= @post_title.user.user_name %> さん
+          <% end %>   
+          <% if current_user.certification_id == @post_title.team.certification_id %>  
+            <div class="comment-delete">
+              <%= button_to '削除', @post_title, { method: :delete, form: { data: { confirm: "スレッドを削除すると、投稿されたコメントもすべて消去されます。よろしいですか？" } } } %>
+            </div>
+          <% end %>
+        </div>   
+      </div>
+      <div class="thread-title-box">
+        <div class="thread-title">
+          <%= @post_title.title %>
+        </div>
+        <div class="thread-option">
+          <div class="thread-tag">
+            <% @tags.each do |tag| %>
+              <%=tag.name%><%="(#{tag.post_titles.count})" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= render partial: 'shared/thread/post_comment-show', collection: @post_title.post_comments, as: :comment %>
+    <% if  current_user.certification_id%>
+      <% if current_user.certification_id == @post_title.team.certification_id %>
+        <%= render partial: 'shared/thread/comment_form', locals: { title: @post_title } %>
+      <% end %>
+    <% end %>
+    <div class="form-footer">
+      <%= link_to team_teamboard_path(@post_title.team.id), class: 'link' do %>
+        このスレッドの掲示板に戻る
+      <% end %>
+    </div>
+  </div>
+</div>
