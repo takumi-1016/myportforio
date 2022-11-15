@@ -21,7 +21,7 @@
               <%= link_to 'このチームの掲示板を見る', team_teamboard_path(team.id), class: "teamboardlink"%>
             <% end %>
           <% else %>
-            <%= form_with model: @user, url: teamIDregistration_path, local: true do |f| %>
+            <%= form_with model: @user, url: team_id_registration_path, local: true do |f| %>
               <%= f.hidden_field :team_id, value: team.id %>
               <div class="team-registration">
                 <%= f.submit" このチームに参加する", class: "button" %>
