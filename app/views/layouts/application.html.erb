@@ -4,8 +4,11 @@
     <%= render 'shared/common/head' %>
   </head>
   <body>
+    <%= render 'shared/common/header' %>
+    <%= render 'shared/common/notice-alert' %>
     <main class = "main">
       <%= yield %>
     </main>
+    <%= render 'shared/common/footer' %>
   </body>
 </html>
