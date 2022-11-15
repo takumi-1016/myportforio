@@ -1,4 +1,4 @@
-class TeamController < ApplicationController
+class TeamsController < ApplicationController
   before_action :set_user
   before_action :set_team, only: [:show, :edit, :update]
   before_action :authenticate_user!

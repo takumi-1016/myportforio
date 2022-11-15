@@ -1,0 +1,18 @@
+<div class="thread-form">
+  <h4>新たにスレッドを作成する</h4>
+  <%= form_with model: @post_title, local: true do |f| %>
+    <div class="thread-form-item">
+      <%= f.text_field :title, autofocus: true, autocomplete: "タイトル", placeholder: "スレッドのタイトルを入力してください" %>
+    </div>
+    <div class="thread-tag-form-item">
+      <i class="fas fa-tag"></i><%= f.label :name, 'タグを入力' %>
+      <%= f.text_field :name, placeholder: "タグを複数つけるには'、'（全角コンマ）で区切ってください" %>
+      <p>例） 練習反省、オフェンス</p>
+    </div>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :team_id, value: current_user.team.id %>
+    <div class="button-panel">
+      <%= f.submit "スレッドを作成する", class:"button" %>
+    </div>
+  <% end %>
+</div>

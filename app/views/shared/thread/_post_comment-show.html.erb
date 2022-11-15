@@ -1,0 +1,30 @@
+<div class="comment">
+  <div class="comment-information">
+    <div class="comment-member-icon">
+      <%= image_tag comment.user.user_image, alt: 'ユーザーアイコン' %>
+    </div>
+    <div class="comment-datail">
+      <div class="comment-member-name">
+        <%= link_to user_path(comment.user.id) do %>
+          <span><%= comment.user.user_name %></span> さん
+        <% end %>
+        <div class="comment-like" id="like_buttons_<%= comment.id %>">
+          <%= render partial: 'shared/thread/like', locals: { comment: comment} %>
+        </div>
+      </div>
+      <div class="comment-option">
+        <div class="comment-date">
+          作成日：<%= comment.created_at.to_s(:datetime_jp) %>
+        </div>
+        <% if current_user.id == comment.user.id %>
+          <div class="comment-delete">
+            <%= button_to '削除', post_comment_path(comment.id), { method: :delete, form: { data: { confirm: "このコメントを削除します。よろしいですか？" } } }%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="comment-content">
+    <%= safe_join(comment.comment.split("\n"),tag(:br)) %>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="comment-form">
+  <%= form_with model: @post_comment, local: true do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :team_id, value: current_user.team.id %>
+    <%= f.hidden_field :post_title_id, value: title.id %>
+    <div class="comment-form-item">
+      <%= f.text_area :comment, autofocus: true, autocomplete: "コメント",id: "textarea", oninput: "resizeTextarea()", row: "1", placeholder: "#{current_user.user_name}さんとしてコメントします。"%>
+    </div>
+    <div class="comment-checkbox">
+      <%= f.check_box :private, :as => :boolean %>
+      <%= label_tag :private, "このコメントをメンバー以外に非公開にする" %>
+    </div>
+    <div class="comment-form-button">
+      <%= f.submit "コメントする", class:"button" %>
+    </div>
+  <% end %>
+</div>
