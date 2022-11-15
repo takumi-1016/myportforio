@@ -1,0 +1,55 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.first-view{
+  height: calc(100vh - 110px);
+  background-image: url(first-view.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right 1% bottom 99%;
+  display: flex;
+  align-items: center;
+}
+.first-view-text{
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-bottom: 80px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 10px #4b2c14;
+  font-size: 5vw;
+  line-height: 100px;
+}
+.introduction{
+  max-width: 1200px;
+  margin: 60px auto;
+}
+.introduction p{
+  line-height: 2;
+  text-align: center;
+  font-weight: bold;
+}
+@media (max-width: 800px) {
+  .first-view{
+    height: calc(100vh - 18px);
+    background-position: right 1% bottom 99%;
+    padding-left: 33px;
+    padding-bottom: 0px;
+  }
+  .first-view-text{
+    font-size: 15vw;
+    line-height: 60px;
+    padding-left: 0px;
+  }
+  .introduction{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .introduction p{
+    text-align: left;
+  }
+}
+
