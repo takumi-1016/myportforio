@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_15_071024) do
+ActiveRecord::Schema.define(version: 2022_11_15_081754) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_071024) do
     t.string "certification_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["certification_id"], name: "index_teams_on_certification_id", unique: true
+    t.index ["team_name"], name: "index_teams_on_team_name", unique: true
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

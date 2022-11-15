@@ -1,0 +1,70 @@
+<div class="background">
+  <div class="main-frame">
+    <div class="team-profile-box">
+      <div class="team-profile-icon">
+        <%= image_tag @team.team_image, alt: 'ユーザーアイコン' %>
+        <p class="team-name"><%= @team.team_name %></p>
+        <p class="team-profile"><%= @team.team_profile %></p> 
+        <% if @user.certification_id %>
+          <% if @user.team_id == @team.id && @user.certification_id == @team.certification_id %>
+            <div class="team-profile-edit">
+              <%= link_to 'チームプロフィール編集', edit_team_path, class: 'button' %>
+            </div>
+          <% end %>
+        <% else %>
+          <%= form_with model: @user, url: teamIDregistration_path, local: true do |f| %>  
+            <%= f.hidden_field :team_id, value: @team.id %>
+            <div class="team-profile-edit">
+              <%= f.submit" このチームに参加する", class: "button" %>    
+            </div>
+          <% end %>
+        <% end %>
+      </div>  
+    </div>
+    <% if  current_user.certification_id == @team.certification_id%>
+      <div class="team-certificationID">
+        <p>チーム認証ID : <%= @team.certification_id %></p>
+      </div>
+    <% end %>
+    <%= render 'shared/user/team_member' %>
+    <div class="profile-post" id="post_title">
+      <div class="profile-post-title">
+        <h4>ー <%= @team.team_name %>のスレッド一覧(<%= @team.post_titles.count%>) ー</h4>
+      </div>
+      <% @post_titles.each do |title| %>
+        <div class="thread">
+          <div class="thread-imfomation">
+            <div class="thread-date">
+              作成日：<%= title.created_at.to_s(:datetime_jp) %>
+            </div>
+            <div class="thread-member">
+              <%= link_to user_path(title.user.id)  do %>
+                作成者：<%= title.user.user_name %> さん
+              <% end %>
+              <% if current_user.certification_id == @team.certification_id %>
+                <div class="comment-delete">
+                  <%= button_to '削除', post_title_path(title.id), { method: :delete, form: { data: { confirm: "このスレッドを削除します。よろしいですか？" } } }%>
+                </div> 
+              <% end %>
+            </div>
+          </div>
+          <div class="thread-title-box">
+            <div class="thread-title">
+              <%= link_to post_title_path(title.id) do %>
+                <%= title.title %>
+              <% end %>
+            </div>
+            <div class="thread-option">
+              <%= render partial: 'shared/thread/tag', locals: { title: title } %>
+            </div>
+            <div class="thread-comment-count">
+             総コメント数（<%= title.post_comments.count %>）
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <%=paginate @post_titles%>
+    </div>
+  </div>
+</div>     
+

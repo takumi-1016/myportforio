@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   resources :teams do
     get '/registration' =>'teams#registration'
-    patch '/teamCertification' =>'teams#teamCertification'
+    patch '/team_certification' =>'teams#team_certification'
     get '/teamboard' =>'teams#teamboard'
   end
   devise_for :users
@@ -16,11 +16,11 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
   resources :users, only: [:show, :edit, :update] do
-    post '/withdrowTeam' => 'users#withdrowTeam'
+    post '/withdrow_team' => 'users#withdrow_team'
   end
   get '/mypage' => 'users#mypage'
   get '/myteam' => 'teams#myteam'
   get '/myboard' => 'teams#myboard'
-  patch '/teamIDregistration' =>'users#teamIDregistration'
+  patch '/team_id_registration' =>'users#team_id_registration'
   root to: 'home#top'
 end
