@@ -97,7 +97,7 @@ class TeamsController < ApplicationController
   end
 
   def edit
-    return if @user.team.id == @team.id && @user.certification_id == @team.certification_id
+    return if @user.certification_id == @team.certification_id
 
     redirect_to team_path(@team)
   end

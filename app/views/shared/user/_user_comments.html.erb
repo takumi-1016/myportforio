@@ -1,37 +1,30 @@
-<div class="profile-post">
-  <div class="profile-post-title">
-    <h4>ー <%= @user.user_name %>さんの投稿一覧(<%= @user.post_comments.count %>) ー</h4>
-  </div>
-  <% @comments.each do |comment| %>
-    <div class="comment">
-      <div class="comment-information">
-        <div class="comment-member-icon">
-          <%= image_tag comment.user.user_image, alt: 'ユーザーアイコン' %>
-        </div>
-        <div class="comment-datail">
-          <div class="comment-member-name">
-            <%= link_to user_path(comment.user.id) do %>
-              <span><%= comment.user.user_name %></span> さん
-            <% end %>
-          </div>
-          <div class="comment-date">
-            作成日：<%= comment.created_at.to_s(:datetime_jp) %>
-            <% if current_user.id == @user.id %>
-              <div class="comment-delete">
-                <%= button_to '削除', post_comment_path(comment.id), { method: :delete, form: { data: { confirm: "このコメントを削除します。よろしいですか？" } } } %>
-              </div>
-            <% end %>
-          </div>
-        </div>
+<div class="comment">
+  <div class="comment-information">
+    <div class="comment-member-icon">
+      <%= image_tag comment.user.user_image, alt: 'ユーザーアイコン' %>
+    </div>
+    <div class="comment-datail">
+      <div class="comment-member-name">
+        <%= link_to user_path(comment.user.id) do %>
+          <span><%= comment.user.user_name %></span> さん
+        <% end %>
       </div>
-      <div class="comment-content">
-        <%= safe_join(comment.comment.split("\n"),tag(:br)) %>
-      </div>
-      <div class="thread-name">
-        <%= link_to post_title_path(comment.post_title.id) do %>
-          スレッド名：<%= comment.post_title.title %>
+      <div class="comment-date">
+        作成日：<%= comment.created_at.to_s(:datetime_jp) %>
+        <% if current_user.id == user.id %>
+          <div class="comment-delete">
+            <%= button_to '削除', post_comment_path(comment.id), { method: :delete, form: { data: { confirm: "このコメントを削除します。よろしいですか？" } } } %>
+          </div>
         <% end %>
       </div>
     </div>
-  <% end %>
+  </div>
+  <div class="comment-content">
+    <%= safe_join(comment.comment.split("\n"),tag(:br)) %>
+  </div>
+  <div class="thread-name">
+    <%= link_to post_title_path(comment.post_title.id) do %>
+      スレッド名：<%= comment.post_title.title %>
+    <% end %>
+  </div>
 </div>

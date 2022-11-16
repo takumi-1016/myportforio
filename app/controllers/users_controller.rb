@@ -19,6 +19,34 @@ class UsersController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def user_posts
+    @user = User.find(params[:user_id])
+    @post_comments = if current_user.certification_id
+                       if current_user.certification_id == @user.team.certification_id
+                         @user.post_comments.page(params[:page]).per(6)
+                       else
+                         @user.post_comments.where(private: false).page(params[:page]).per(6)
+                       end
+                     else
+                       @user.post_comments.where(private: false).page(params[:page]).per(6)
+                     end
+  end
+
+  def user_likes
+    @user = User.find(params[:user_id])
+    like_comments_list = Like.where(user_id: @user.id)
+    like_comments_list_id = like_comments_list.pluck(:id)
+    @like_comments = if current_user.certification_id
+                       if current_user.certification_id == @user.team.certification_id
+                         PostComment.where(id: like_comments_list_id).page(params[:page]).per(6)
+                       else
+                         PostComment.where(id: like_comments_list_id).where(private: false).page(params[:page]).per(6)
+                       end
+                     else
+                       PostComment.where(id: like_comments_list_id).where(private: false).page(params[:page]).per(6)
+                     end
+  end
+
   def edit
     return if @user == current_user
 
