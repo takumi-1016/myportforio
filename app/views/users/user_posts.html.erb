@@ -1,0 +1,11 @@
+<div class="background">
+  <div class="main-frame">
+    <div class="profile-post">
+      <div class="profile-post-title">
+        <h4>ー <%= @user.user_name %>さんの投稿一覧(<%= @post_comments.count %>) ー</h4>
+      </div>
+      <%= render partial: 'shared/user/user_comments', collection: @post_comments, as: :comment, locals: { user: @user } %>
+      <%=paginate @post_comments%>
+    </div>
+  </div>
+</div>     

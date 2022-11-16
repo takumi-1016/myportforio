@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :edit, :update] do
     post '/withdrow_team' => 'users#withdrow_team'
+    get '/user_likes'=> 'users#user_likes'
+    get '/user_posts'=> 'users#user_posts'
   end
   get '/mypage' => 'users#mypage'
   get '/myteam' => 'teams#myteam'

@@ -20,13 +20,7 @@
         <div class="thread-title">
           <%= @post_title.title %>
         </div>
-        <div class="thread-option">
-          <div class="thread-tag">
-            <% @tags.each do |tag| %>
-              <%=tag.name%><%="(#{tag.post_titles.count})" %>
-            <% end %>
-          </div>
-        </div>
+        <%= render partial: 'shared/thread/tag', locals: { title: @post_title } %>
       </div>
     </div>
     <%= render partial: 'shared/thread/post_comment-show', collection: @post_title.post_comments, as: :comment %>

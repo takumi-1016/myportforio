@@ -34,7 +34,26 @@
         <%= @user.user_profile%>
       </div>
     </div>
-    <%= render 'shared/user/user_comments' %>
-    <%=paginate @comments%>
+    <div class="profile-index">
+      <div class="profile-index-item">
+      <%= link_to user_user_posts_path(user_id: @user.id), class: 'link' do %>
+        <p>投稿したコメント（<%= @user.post_comments.count%>）</p>
+      <% end %>     
+      </div>
+      <div class="profile-index-item">
+      <%= link_to user_user_likes_path(user_id: @user.id), class: 'link' do %>
+        <p>いいねした投稿（<%= @user.likes.count%>）</p>
+      <% end %>
+      </div>
+      <div class="profile-index-item">
+      <% if @user.certification_id %>
+        <%= link_to team_teamboard_path(team_id: @user.team.id), class: 'link' do %>
+          <p>チームの掲示板</p>
+        <% end %>
+      <% else %>
+        <p>チーム非参加</p>
+      <% end %>
+      </div>
+    </div>
   </div>
 </div>     

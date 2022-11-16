@@ -11,7 +11,7 @@
         <% end %>
       <% end %>
     </div>
-    <%= render partial: 'shared/thread/post_title-show', collection: @post_titles, as: :title %>      
+    <%= render partial: 'shared/thread/post_title-show', collection: @post_titles, as: :title, %>      
     <%=paginate @post_titles%>
   </div>
 </div>
