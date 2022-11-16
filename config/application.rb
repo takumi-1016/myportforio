@@ -12,6 +12,8 @@ module Myportforio
     config.load_defaults 6.1
     config.i18n.default_locale = :ja
     config.time_zone = 'Asia/Tokyo'
+
+    
     config.generators do |g|
       g.test_framework :rspec,
       view_specs: false,
