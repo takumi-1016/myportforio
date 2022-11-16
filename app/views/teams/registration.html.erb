@@ -7,6 +7,7 @@
     <%= form_with model: @user, url: team_team_certification_path, local: true do |f| %>
       <%= f.hidden_field :team_id, value: @team.id %>
       <div class="form-item">
+        <%= render "shared/common/error_messages", model: @user, attribute: :certification_id %>
         <%= f.text_field :certification_id, autofocus: true, placeholder: "#{@team.team_name}のチーム認証ID(半角５文字)を入力" %>
       </div>
       <div class="button-panel">

@@ -58,7 +58,7 @@ class TeamsController < ApplicationController
 
   def new
     if current_user.certification_id
-      redirect_to user_path(current_user.id), notice: 'すでにチームに参加しています。チーム作成の際はマイページ→プロフィール編集からチームを退会してください。'
+      redirect_to edit_user_path(current_user.id), notice: 'すでにチームに参加しています。チーム作成の際はマイページ→プロフィール編集からチームを退会してください。'
     else
       @team = Team.new
     end
