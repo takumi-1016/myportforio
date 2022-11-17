@@ -24,12 +24,12 @@ RSpec.describe 'Users', type: :system do
       before do
         visit new_user_registration_path
       end
-      context "新規登録画面に遷移" do
+      context '新規登録画面に遷移' do
         it '新規登録に成功しユーザーが登録されること' do
-          fill_in 'ユーザーネーム', with: "test"
-          fill_in 'Eメール', with: "test@example.com"
-          fill_in 'パスワード', with: "testtest"
-          fill_in 'パスワード（確認用）', with: "testtest"
+          fill_in 'ユーザーネーム', with: 'test'
+          fill_in 'Eメール', with: 'test@example.com'
+          fill_in 'パスワード', with: 'testtest'
+          fill_in 'パスワード（確認用）', with: 'testtest'
           click_button '上記の内容で登録する'
           expect(page).to have_content 'チーム認証IDを確認しているチームに参加できます。また、チームを作成して参加できることもできます。'
         end
@@ -42,7 +42,7 @@ RSpec.describe 'Users', type: :system do
 
       context 'ログイン画面に遷移' do
         it 'ログインに成功する' do
-          fill_in "Eメール", with: user.email
+          fill_in 'Eメール', with: user.email
           fill_in 'パスワード', with: user.password
           click_button 'ログイン'
           expect(page).to have_content 'ログインしました。'
@@ -61,7 +61,7 @@ RSpec.describe 'Users', type: :system do
       context 'チーム登録しているユーザーの場合' do
         before do
           visit new_user_session_path
-          fill_in "Eメール", with: user.email
+          fill_in 'Eメール', with: user.email
           fill_in 'パスワード', with: user.password
           click_button 'ログイン'
         end
@@ -82,18 +82,18 @@ RSpec.describe 'Users', type: :system do
         end
         it 'チーム作成ページにアクセスできないこと' do
           click_link('チーム作成')
-          expect{ visit new_team_path }.to change {current_path}.from(new_team_path).to(edit_user_path(user))
+          expect { visit new_team_path }.to change { current_path }.from(new_team_path).to(edit_user_path(user))
         end
         it 'プロフィール編集できること' do
           visit edit_user_path(user)
-          fill_in "ユーザーネーム", with: "変更ネーム"
+          fill_in 'ユーザーネーム', with: '変更ネーム'
           click_button 'プロフィールを更新する'
           visit user_path(user)
           expect(page).to have_content '変更ネーム'
         end
         it 'チームを退会できること' do
           visit edit_user_path(user)
-          click_button '#{user.team.team_name}からから退会する'
+          click_button "#{user.team.team_name}からから退会する"
           visit user_path(user)
           expect(page).to have_content 'チームに所属していません。'
         end
@@ -102,7 +102,7 @@ RSpec.describe 'Users', type: :system do
       context 'チーム登録していないユーザーの場合' do
         before do
           visit new_user_session_path
-          fill_in "Eメール", with: user_no_team.email
+          fill_in 'Eメール', with: user_no_team.email
           fill_in 'パスワード', with: user_no_team.password
           click_button 'ログイン'
         end
@@ -118,5 +118,3 @@ RSpec.describe 'Users', type: :system do
     end
   end
 end
-
-  
