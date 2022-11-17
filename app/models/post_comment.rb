@@ -6,8 +6,6 @@ class PostComment < ApplicationRecord
   belongs_to :post_title
   has_many :likes, dependent: :destroy
 
-  default_scope -> { order(created_at: :desc) }
-
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
   end
