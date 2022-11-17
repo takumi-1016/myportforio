@@ -15,9 +15,8 @@ RSpec.describe 'Teams', type: :request do
 
   let!(:post_comment) { create(:post_comment, user_id: user.id, post_title_id: post_title.id) }
 
-  let!(:other_post_comment1) do
-    create(:post_comment, user_id: other_user.id, private: false, post_title_id: other_post_title.id)
-  end
+  let!(:other_post_comment1) { create(:post_comment, user_id: other_user.id, private: false, post_title_id: other_post_title.id) }
+
   let!(:other_post_comment2) { create(:post_comment, user_id: other_user.id, private: true, post_title_id: other_post_title.id) }
 
   context 'チームに所属する人がアクセスする時' do
