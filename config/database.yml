@@ -50,4 +50,4 @@ test:
 #
 production:
   <<: *default
-  password: <%= ENV['MYPORTFORIO_DATABASE_PASSWORD'] %>
+  url: <%= ENV['JAWSDB_URL']&.sub('mysql://', 'mysql2://') %>
