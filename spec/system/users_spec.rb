@@ -57,64 +57,64 @@ RSpec.describe 'Users', type: :system do
   #     end
   #   end
 
-  #   # describe 'ログイン後の機能' do
-  #   #   context 'チーム登録しているユーザーの場合' do
-  #   #     before do
-  #   #       visit new_user_session_path
-  #   #       fill_in 'Eメール', with: user.email
-  #   #       fill_in 'パスワード', with: user.password
-  #   #       click_button 'ログイン'
-  #   #     end
-  #   #     it 'チーム掲示板にアクセスできること' do
-  #   #       expect(current_path).to eq myboard_path
-  #   #     end
-  #   #     it 'マイチームページにアクセスできること' do
-  #   #       click_link('マイチーム')
-  #   #       expect(current_path).to eq myteam_path
-  #   #     end
-  #   #     it 'マイページにアクセスできること' do
-  #   #       click_link('マイページ')
-  #   #       expect(current_path).to eq mypage_path
-  #   #     end
-  #   #     it 'チーム一覧にアクセスできること' do
-  #   #       click_link('チーム一覧')
-  #   #       expect(current_path).to eq teams_path
-  #   #     end
-  #   #     it 'チーム作成ページにアクセスできないこと' do
-  #   #       click_link('チーム作成')
-  #   #       expect { visit new_team_path }.to change { current_path }.from(new_team_path).to(edit_user_path(user))
-  #   #     end
-  #   #     it 'プロフィール編集できること' do
-  #   #       visit edit_user_path(user)
-  #   #       fill_in 'ユーザーネーム', with: '変更ネーム'
-  #   #       click_button 'プロフィールを更新する'
-  #   #       visit user_path(user)
-  #   #       expect(page).to have_content '変更ネーム'
-  #   #     end
-  #   #     it 'チームを退会できること' do
-  #   #       visit edit_user_path(user)
-  #   #       click_button "#{user.team.team_name}からから退会する"
-  #   #       visit user_path(user)
-  #   #       expect(page).to have_content 'チームに所属していません。'
-  #   #     end
-  #   #   end
+  #   describe 'ログイン後の機能' do
+  #     context 'チーム登録しているユーザーの場合' do
+  #       before do
+  #         visit new_user_session_path
+  #         fill_in 'Eメール', with: user.email
+  #         fill_in 'パスワード', with: user.password
+  #         click_button 'ログイン'
+  #       end
+  #       it 'チーム掲示板にアクセスできること' do
+  #         expect(current_path).to eq myboard_path
+  #       end
+  #       it 'マイチームページにアクセスできること' do
+  #         click_link('マイチーム')
+  #         expect(current_path).to eq myteam_path
+  #       end
+  #       it 'マイページにアクセスできること' do
+  #         click_link('マイページ')
+  #         expect(current_path).to eq mypage_path
+  #       end
+  #       it 'チーム一覧にアクセスできること' do
+  #         click_link('チーム一覧')
+  #         expect(current_path).to eq teams_path
+  #       end
+  #       it 'チーム作成ページにアクセスできないこと' do
+  #         click_link('チーム作成')
+  #         expect { visit new_team_path }.to change { current_path }.from(new_team_path).to(edit_user_path(user))
+  #       end
+  #       it 'プロフィール編集できること' do
+  #         visit edit_user_path(user)
+  #         fill_in 'ユーザーネーム', with: '変更ネーム'
+  #         click_button 'プロフィールを更新する'
+  #         visit user_path(user)
+  #         expect(page).to have_content '変更ネーム'
+  #       end
+  #       it 'チームを退会できること' do
+  #         visit edit_user_path(user)
+  #         click_button "#{user.team.team_name}からから退会する"
+  #         visit user_path(user)
+  #         expect(page).to have_content 'チームに所属していません。'
+  #       end
+  #     end
 
-  #   #   context 'チーム登録していないユーザーの場合' do
-  #   #     before do
-  #   #       visit new_user_session_path
-  #   #       fill_in 'Eメール', with: user_no_team.email
-  #   #       fill_in 'パスワード', with: user_no_team.password
-  #   #       click_button 'ログイン'
-  #   #     end
-  #   #     it 'チーム一覧にアクセスできること' do
-  #   #       click_link('チーム一覧')
-  #   #       expect(current_path).to eq teams_path
-  #   #     end
-  #   #     it 'チーム作成ページにアクセスできること' do
-  #   #       click_link('チーム作成')
-  #   #       expect(current_path).to eq new_team_path
-  #   #     end
-  #   #   end
-  #   # end
-  end
+  #     context 'チーム登録していないユーザーの場合' do
+  #       before do
+  #         visit new_user_session_path
+  #         fill_in 'Eメール', with: user_no_team.email
+  #         fill_in 'パスワード', with: user_no_team.password
+  #         click_button 'ログイン'
+  #       end
+  #       it 'チーム一覧にアクセスできること' do
+  #         click_link('チーム一覧')
+  #         expect(current_path).to eq teams_path
+  #       end
+  #       it 'チーム作成ページにアクセスできること' do
+  #         click_link('チーム作成')
+  #         expect(current_path).to eq new_team_path
+  #       end
+  #     end
+  #   end
+  # end
 end
