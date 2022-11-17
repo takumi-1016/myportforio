@@ -15,12 +15,6 @@ RSpec.describe 'Users', type: :system do
 
   # let!(:post_comment) { create(:post_comment, user_id: user.id, post_title_id: post_title.id) }
 
-  # let!(:other_post_comment1)
-  #{ create(:post_comment, user_id: other_user.id, private: false, post_title_id: other_post_title.id) }
-
-  # let!(:other_post_comment2)
-  #{ create(:post_comment, user_id: other_user.id, private: true, post_title_id: other_post_title.id) }
-
   # describe 'ユーザー機能の確認' do
   #   describe 'ユーザーの新規登録' do
   #     before do
