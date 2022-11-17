@@ -58,7 +58,7 @@ class TeamsController < ApplicationController
 
   def new
     if current_user.certification_id
-      redirect_to user_path(current_user.id), notice: 'すでにチームに参加しています。チーム作成の際はマイページ→プロフィール編集からチームを退会してください。'
+      redirect_to edit_user_path(current_user.id), notice: 'すでにチームに参加しています。チーム作成の際はマイページ→プロフィール編集からチームを退会してください。'
     else
       @team = Team.new
     end
@@ -67,7 +67,7 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     if @team.save
-      redirect_to team_registration_path(@team), notice: "チームを作成しました。チーム認証IDに”#{@team.certification_id}”を入力してチームに参加してください。。"
+      redirect_to team_registration_path(@team), notice: "チームを作成しました。チーム認証IDに”#{@team.certification_id}”を入力してチームに参加してください。"
     else
       flash[:alert] = '必須項目に入力してください'
       render 'new'

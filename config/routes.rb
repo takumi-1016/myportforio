@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :tags do
     get 'search', to: 'post_titles#search'
   end
@@ -23,6 +24,5 @@ Rails.application.routes.draw do
   get '/mypage' => 'users#mypage'
   get '/myteam' => 'teams#myteam'
   get '/myboard' => 'teams#myboard'
-  patch '/team_id_registration' =>'users#team_id_registration'
   root to: 'home#top'
 end

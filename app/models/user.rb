@@ -3,7 +3,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :user_name, length: { minimum: 1, maximum: 15 }, presence: true
+  validates :user_name, length: { minimum: 1, maximum: 15 }, presence: true, uniqueness: true
 
   has_one_attached :user_image
   belongs_to :team, optional: true

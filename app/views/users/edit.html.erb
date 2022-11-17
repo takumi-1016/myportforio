@@ -10,6 +10,7 @@
           </div>
         </div>
         <div class="form-item">
+          <%= render "shared/common/error_messages", model: @user, attribute: :user_name %>
           <%= f.label :user_name %>(15文字以内)<br>
           <%= f.text_field :user_name %>
         </div>

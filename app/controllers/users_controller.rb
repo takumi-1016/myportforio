@@ -4,15 +4,6 @@ class UsersController < ApplicationController
   protect_from_forgery
   def show
     @team = @user.team
-    @comments = if current_user.certification_id
-                  if current_user.certification_id == @team.certification_id
-                    PostComment.where(user_id: @user.id).page(params[:page]).per(6)
-                  else
-                    PostComment.where(user_id: @user.id).where(private: false).page(params[:page]).per(6)
-                  end
-                else
-                  PostComment.where(user_id: @user.id).where(private: false).page(params[:page]).per(6)
-                end
   end
 
   def mypage
@@ -35,7 +26,7 @@ class UsersController < ApplicationController
   def user_likes
     @user = User.find(params[:user_id])
     like_comments_list = Like.where(user_id: @user.id)
-    like_comments_list_id = like_comments_list.pluck(:id)
+    like_comments_list_id = like_comments_list.pluck(:post_comment_id)
     @like_comments = if current_user.certification_id
                        if current_user.certification_id == @user.team.certification_id
                          PostComment.where(id: like_comments_list_id).page(params[:page]).per(6)
@@ -51,14 +42,6 @@ class UsersController < ApplicationController
     return if @user == current_user
 
     redirect_to user_path(@user)
-  end
-
-  def team_id_registration
-    if current_user.update(user_params)
-      redirect_to team_registration_path(current_user.team.id)
-    else
-      redirect_to team_path(params[:team_id])
-    end
   end
 
   def update

@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+git add . 
+git commit -m "likemodelのmodelspec"
+git push -u origin rspecの記述

@@ -1,8 +1,8 @@
 class Team < ApplicationRecord
   before_create :default_image
 
-  validates :team_name, length: { minimum: 1, maximum: 20 }, presence: true
-  validates :certification_id, length: { is: 5 }, presence: true
+  validates :team_name, length: { minimum: 1, maximum: 20 }, presence: true, uniqueness: true
+  validates :certification_id, length: { is: 5 }, presence: true, uniqueness: true
 
   has_one_attached :team_image
   has_many :users, dependent: :destroy

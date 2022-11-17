@@ -41,6 +41,6 @@ class PostTitlesController < ApplicationController
   private
 
   def post_title_params
-    params.require(:post_title).permit(:title, :user_id, :team_id, :private)
+    params.require(:post_title).permit(:title, :user_id, :team_id)
   end
 end

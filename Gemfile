@@ -26,6 +26,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -49,9 +50,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #add gem by myself
 gem 'devise'
 gem 'devise-i18n'
-gem 'net-imap'
-gem 'net-pop'
-gem 'net-smtp'
 gem 'jquery-rails'
 gem 'bootstrap'
 gem 'mini_magick'
@@ -61,3 +59,6 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'ransack'
 gem 'font-awesome-sass'
+gem 'rails_admin', '~> 3.0'
+gem 'cancancan'
+gem 'rails-i18n'

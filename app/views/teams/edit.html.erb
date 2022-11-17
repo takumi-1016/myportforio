@@ -10,6 +10,7 @@
         </div>
       </div>
       <div class="form-item">
+        <%= render "shared/common/error_messages", model: @team, attribute: :team_name %>
         <%= f.label :team_name %><br>
         <%= f.text_field :team_name %>
       </div>
