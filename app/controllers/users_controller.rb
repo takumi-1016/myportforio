@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   protect_from_forgery
   def show
     @team = @user.team
-
   end
 
   def mypage
