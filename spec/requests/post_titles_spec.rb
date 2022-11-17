@@ -23,6 +23,7 @@ RSpec.describe 'PostTitles', type: :request do
   let!(:tag_relationship) { create(:tag_relationship, tag_id: tag.id, post_title_id: post_title.id) }
 
   let!(:valid_params) { attributes_for(:post_title, title: 'post_title', user_id: user.id, team_id: team.id) }
+  
   before do
     sign_in user
   end

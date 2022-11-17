@@ -67,7 +67,7 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     if @team.save
-      redirect_to team_registration_path(@team), notice: "チームを作成しました。チーム認証IDに”#{@team.certification_id}”を入力してチームに参加してください。。"
+      redirect_to team_registration_path(@team), notice: "チームを作成しました。チーム認証IDに”#{@team.certification_id}”を入力してチームに参加してください。"
     else
       flash[:alert] = '必須項目に入力してください'
       render 'new'
