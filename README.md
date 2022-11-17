@@ -1,27 +1,28 @@
-# README
+# アルティメットチーム専用掲示板 『Ulti』
+ アルティメットチーム専用の掲示板です。<br >
+ アルティメットとはフリスビーを使うスポーツです。 <br >
+ チームごとに専用の掲示板を持ち、スレッドをたて、コメントしていくことで、練習の反省やプレーの言語化などを記録してくことができます。<br >
+ 他のチームの掲示板も閲覧することができます。
+ <img width="1422" alt="スクリーンショット 2022-11-09 22 26 26" src="https://user-images.githubusercontent.com/105266085/200842339-63cfd6e9-eb68-45a3-b16f-87f70f48a26f.png">
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# URL
 
-* Ruby version
+# 使用技術
+- Ruby 2.7.5
+- Ruby on Rails 6.1.7
+- MySQL2
+- circleci 
+- rspec  3.12
 
-* System dependencies
+# 機能一覧
+- ユーザー登録、ログイン機能(devise)、マイページ機能（activestrage）
+- チーム登録機能、チーム認証
+- 投稿機能
+  - プライベート投稿
+  - いいね機能（Ajax）
+  - タグ付け機能
+    - タグ検索機能
+- ページネーション機能(kaminari)
+- 検索機能(ransack)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-git add . 
-git commit -m "likemodelのmodelspec"
-git push -u origin rspecの記述
