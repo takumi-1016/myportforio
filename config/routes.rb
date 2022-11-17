@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :tags do
     get 'search', to: 'post_titles#search'
   end
