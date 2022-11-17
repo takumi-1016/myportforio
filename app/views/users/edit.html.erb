@@ -1,0 +1,32 @@
+<div class="background">
+  <div class="main-frame">
+    <%= form_with model: @user, data: { confirm: '上記の内容でプロフィールを更新しますか？' } do |f| %>
+      <div class="profile-box">
+        <div class="profile-icon">  
+          <%= image_tag @user.user_image, alt: 'ユーザーアイコン' %>
+          <div class="form-item">
+            <%= f.label :user_image %>
+            <%= f.file_field :user_image %>
+          </div>
+        </div>
+        <div class="form-item">
+          <%= render "shared/common/error_messages", model: @user, attribute: :user_name %>
+          <%= f.label :user_name %>(15文字以内)<br>
+          <%= f.text_field :user_name %>
+        </div>
+        <div class="form-item">
+          <%= f.label :user_profile %><br>
+          <%= f.text_field :user_profile %>
+        </div>
+      </div>
+      <div class="button-panel">
+        <%= f.submit "プロフィールを更新する", class:"button" %>
+      </div>   
+    <% end %>
+    <% if current_user.certification_id %>
+      <div class="button-panel">
+        <%= button_to "#{@user.team.team_name}から退会する", user_withdrow_team_path(current_user.id), { method: :pucth, class: "button-danger", form: { data: { confirm: "このチームから退会します。よろしいですか？" } } }  %>
+      </div>
+    <% end %>
+  </div>
+</div>     

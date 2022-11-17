@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myportforio</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'shared/common/head' %>
   </head>
-
   <body>
-    <%= yield %>
+    <%= render 'shared/common/header' %>
+    <%= render 'shared/common/notice-alert' %>
+    <main class = "main">
+      <%= yield %>
+    </main>
+    <%= render 'shared/common/footer' %>
   </body>
 </html>

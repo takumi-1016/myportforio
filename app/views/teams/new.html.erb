@@ -1,0 +1,36 @@
+<div class="form-main">
+  <div class="form-wrapper">
+    <h1>新規登録</h1>
+    <%= form_with model: @team, local: true do |f| %>
+      <div class="form-item">
+        <%= render "shared/common/error_messages", model: @team, attribute: :team_name %>
+        <%= f.label :team_name %><br />
+        <%= f.text_field :team_name, autofocus: true, autocomplete: "チーム名" %>
+      </div>
+      <div class="form-item">
+        <%= f.label :team_profile %><br />
+        <%= f.text_field :team_profile, autofocus: true, autocomplete: "チーム紹介" %>
+      </div>
+      <div class="form-item">
+        <%= f.label :team_image %><br />
+        <%= f.file_field :team_image %>
+      </div>
+      <div class="form-item">
+        <%= render "shared/common/error_messages", model: @team, attribute: :certification_id %>
+        <%= f.label :certification_id %>(半角５文字で記入)<br />
+        <%= f.text_field :certification_id, autofocus: true, autocomplete: "チーム参加用 ID(５文字)" %>
+        <p>※チーム参加時にこのIDを使用します。</p>
+        <p>※IDはマイチームページから確認できます。</p>
+        <p>※一度設定すると変更はできません。</p>
+      </div>
+      <div class="button-panel">
+        <%= f.submit "チームを作成する", class:"button" %>
+      </div>
+    <% end %>
+    <div class="form-footer">
+      <%= link_to 'チーム一覧', teams_path %>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,59 @@
+<div class="background">
+  <div class="main-frame">
+    <div class="profile-header">
+      <div class="profile-icon">
+        <%= image_tag @user.user_image, alt: 'ユーザーアイコン' %>
+      </div>
+      <div class="profile-edit-button">
+        <% if current_user.id == @user.id %>
+          <div class="button">
+            <%= link_to 'プロフィール編集', edit_user_path(current_user) %>
+          </div>
+          <div class="button">
+            <%= link_to 'アカウント編集', edit_user_registration_path %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="profile-datail">
+      <div class="profile-datail-name">
+        <p><%= @user.user_name%></p>
+      </div>
+      <div class="profile-datail-team">   
+        <% if @user.certification_id %>
+          <% if @user.team.certification_id == @user.certification_id %>
+            <p>参加チーム：<span><%= link_to "#{@user.team.team_name}", team_path(@user.team.id) %></span></p>
+          <% else %>
+            <p>チームに参加していません→<span><%= link_to "こちら", teams_path %></span>から参加！</p>
+          <% end %>
+        <% else %>
+          <p>チームに参加していません→<span><%= link_to "こちら", teams_path %></span>から参加！</p>
+        <% end %>
+      </div>
+      <div class="profile-datail-profile">
+        <%= @user.user_profile%>
+      </div>
+    </div>
+    <div class="profile-index">
+      <div class="profile-index-item">
+      <%= link_to user_user_posts_path(user_id: @user.id), class: 'link' do %>
+        <p>投稿したコメント（<%= @user.post_comments.count%>）</p>
+      <% end %>     
+      </div>
+      <div class="profile-index-item">
+      <%= link_to user_user_likes_path(user_id: @user.id), class: 'link' do %>
+        <p>いいねした投稿（<%= @user.likes.count%>）</p>
+      <% end %>
+      </div>
+      <div class="profile-index-item">
+      <% if @user.certification_id %>
+        <%= link_to team_teamboard_path(team_id: @user.team.id), class: 'link' do %>
+          <p>チームの掲示板</p>
+        <% end %>
+      <% else %>
+        <p>チーム非参加</p>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>     

@@ -1,0 +1,10 @@
+<div class="thread-option">
+  <% title.tags.each do |tag|%>
+    <div class="thread-tag">
+      <%= link_to tag_search_path(tag_id: tag.id), class: 'link' do %>
+        <%=tag.name %>
+        <%="(#{tag.post_titles.count})" %>
+      <% end %>
+    </div>
+    <% end %>
+</div>

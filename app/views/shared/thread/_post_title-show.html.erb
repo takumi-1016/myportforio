@@ -1,0 +1,41 @@
+<div class="thread">
+  <div class="thread-imfomation">
+    <div class="thread-date">
+      作成日：<%= title.created_at.to_s(:datetime_jp) %>
+    </div>
+    <div class="thread-member">
+      <% if title.team == current_user.team %>
+        <%= link_to user_path(title.user.id)  do %>
+          作成者：<%= title.user.user_name %> さん
+        <% end %> 
+      <% else %>
+        <%= link_to team_teamboard_path(title.team.id)  do %>
+          作成チーム：<%= title.team.team_name %>
+        <% end %>
+      <% end %>
+      <% if current_user.id == title.user.id %>
+        <div class="comment-delete">
+          <%= button_to '削除', post_title_path(title.id), { method: :delete, form: { data: { confirm: "このスレッドを削除します。よろしいですか？" } } }%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="thread-title-box">
+    <div class="thread-title">
+      <%= link_to post_title_path(title.id) do %>
+        <%= title.title %>
+      <% end %>
+    </div>
+    <%= render partial: 'shared/thread/tag', locals: { title: title } %>
+  </div>
+  <details>
+    <summary>コメントを見る（<%=title.post_comments.count%>）</summary>
+    <% if current_user.certification_id == title.team.certification_id %>
+      <%= render partial: 'shared/thread/post_comment-show', collection: title.post_comments, as: :comment %>
+      <%= render partial: 'shared/thread/comment_form', locals: { title: title } %>
+    <% else %>
+      <%= render partial: 'shared/thread/post_comment-show', collection: title.post_comments.where(private: false), as: :comment %>
+    <% end %>
+  </details>      
+</div>
+

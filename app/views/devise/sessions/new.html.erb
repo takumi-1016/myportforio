@@ -1,0 +1,21 @@
+<div class="form-main">
+  <div class="form-wrapper">
+    <h1>ログイン</h1>
+    <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: @user %>
+      <div class="form-item">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      <div class="form-item">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+      <div class="button-panel">
+        <%= f.submit "ログイン", class:"button" %>
+      </div>
+    <% end %>
+    <div class="form-footer">
+    </div>
+  </div>
+</div>

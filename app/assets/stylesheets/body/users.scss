@@ -1,0 +1,116 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.profile form{
+  max-width: 557.88px;
+}
+.profile-header{
+  display: flex;
+  align-items: center;
+  width:  100%;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.profile-edit-button{
+  display: flex;
+  flex-direction: column;
+}
+.profile-edit-button .button{
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #FFF;
+  background: #000000;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+  border: solid 2px #000000;
+  text-align: center;
+}
+.profile-icon img{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-datail{
+  margin-bottom: 10px;
+}
+.profile-datail-name{
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.profile-datail-team{
+  font-size: 15px;
+  color: darkgrey;
+  margin-bottom: 10px;
+}
+.profile-datail-team span{
+  color: rgb(255, 119, 119);
+  text-decoration: underline;
+}
+
+.profile-datail-profile{
+  font-size: 20px;
+}
+.profile-post{
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.profile-post-title{
+  font-size: large;
+  margin: auto;
+  margin-bottom: 20px;
+}
+.profile-post-box{
+  align-items: center;
+}
+.profile-post-detail{
+  align-items: center;
+}
+.profile-post-content{
+  align-items: center;
+}
+.profile-index{
+  display: flex;
+  justify-content: space-around;
+  height: 100px;
+  align-items: center;
+  margin-top: 50px;
+}
+.profile-index-item {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
+  display: block;
+  align-items: center;
+  justify-content: center 
+}
+.profile-index-item a{
+  width: 100%;
+  height: fit-content;
+  align-items: center;
+}
+.profile-index-item p{
+  width: 100%;
+  height: fit-content;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .profile-icon img{
+    width: 100px;
+    height: 100px;
+  }
+  .background{
+    padding: 10px;
+  }
+}

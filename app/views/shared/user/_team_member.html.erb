@@ -1,0 +1,15 @@
+<h4 class="team-members-title">〜　所属メンバー　〜</h4>
+<div class="team-members">
+  <% @members.each do |member| %>
+    <div class="member">
+      <%= link_to user_path(member.id) do %>
+        <div class="member-icon ">
+          <%= image_tag member.user_image, alt: 'ユーザーアイコン' %>
+        </div>
+        <div class="member-name">
+          <%= member.user_name %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

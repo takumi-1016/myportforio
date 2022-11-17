@@ -1,0 +1,40 @@
+.notifications {
+  color: #fff;
+  text-align: center;
+  margin: 0px;
+}
+.notifications .alert {
+  background-color: #F35500;
+  margin: 0;
+}
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+}
+.notifications .notice {
+  background-color: rgb(0, 17, 255);
+  margin: 0%;
+}
+
+#error_explanation{
+  color: #F35500;
+  font-size: 15px;
+}
+@media (max-width: 800px) {
+  .notifications {
+    color: #fff;
+    text-align: center;
+    margin: 0px;
+  }
+  .notifications .alert {
+    background-color: #F35500;
+  }
+  .alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+  }
+  .notifications .notice {
+    background-color: rgb(0, 17, 255);
+    margin: 0%;
+  }
+}
