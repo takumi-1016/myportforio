@@ -33,7 +33,7 @@
 - rspec  3.12
 
 # ER図
-(![erd](https://user-images.githubusercontent.com/105266085/204817482-60f12c2a-a323-4096-8cce-049cda3cd2ac.png)
+![erd](https://user-images.githubusercontent.com/105266085/204817482-60f12c2a-a323-4096-8cce-049cda3cd2ac.png)
 
 # 機能一覧
 - ユーザー登録、ログイン機能(devise)、マイページ機能（active strage）
