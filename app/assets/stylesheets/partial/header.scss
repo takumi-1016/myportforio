@@ -171,11 +171,11 @@
   .openbtn1{
     position:fixed;
     z-index: 9999;/*ボタンを最前面に*/
-    top:30px;
+    top:5px;
     right: 43px;
     cursor: pointer;
-    width: 84px;
-    height:84px;
+    width: 70px;
+    height:70px;
     display: block;
   }
   
@@ -191,15 +191,15 @@
   }
   
   .openbtn1 span:nth-of-type(1) {
-    top:-12px; 
+    top:10px; 
   }
   
   .openbtn1 span:nth-of-type(2) {
-    top: 9px;
+    top: 30px;
   }
   
   .openbtn1 span:nth-of-type(3) {
-    top:31px;
+    top:50px;
   }
   
   .openbtn1.active span:nth-of-type(1) {

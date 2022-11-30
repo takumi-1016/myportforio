@@ -170,5 +170,12 @@
     width: 100%;
     padding: 10px;
   }
-
+  .search-input{
+    outline:0;	
+    height:50px;
+    padding:0 10px; 
+    width: 60%;
+    border-radius:2px;
+    background:#eee;
+  }
 }

@@ -37,6 +37,7 @@ group :development do
   #add gem by myself
   gem 'rubocop', require:false
   gem 'rubocop-rails', require:false
+  gem "rails-erd"
 end
 
 group :test do
