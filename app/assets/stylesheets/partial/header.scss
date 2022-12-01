@@ -1,10 +1,8 @@
- /*-------------------------------------------------------------------------
-ヘッダー内部
---------------------------------------------------------------------------*/
 .header{
   color: white;
   background-color: black;
 }
+
 .header-inner {
   max-width: 1200px;
   height: 110px;
@@ -16,25 +14,27 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .header-logo img{
   display: block;
   width: 170px;
   margin-top: 5px;
 }
+
 .site-menu ul {
   display: flex;
 }
+
 .site-menu ul li {
   margin-left: 20px;
   margin-right: 20px;
 }
+
 .site-menu ul li a {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
 }
- /*-------------------------------------------------------------------------
-ハンバーガーメニューとメニューリスト
---------------------------------------------------------------------------*/
+
 #g-nav{
   position:fixed;
   z-index: 999;
@@ -94,7 +94,6 @@
   display: none;
 }
 
-/*×に変化*/  
 .openbtn1 span{
   display: inline-block;
   transition: all .4s;
@@ -135,28 +134,34 @@
   transform: translateY(-6px) rotate(45deg);
   width: 50%;
 }
+
 @media (max-width: 800px) {
   .site-menu ul {
     display: block;
     text-align: center;
   }
+
   .site-menu li {
     margin-top: 20px;
   }
+
   .header {
     background-color: black;
     height: 80px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   }
+
   .header-inner {
     padding-left: 20px;
     padding-right: 20px;
     height: 100%;
     position: relative;
   }
+
   .header-logo img{
     width: 80px;
   }
+
   .header-site-menu {
     position: absolute;
     top: 100%;
@@ -168,9 +173,10 @@
     padding-bottom: 50px;
     display: none;
   }
+
   .openbtn1{
     position:fixed;
-    z-index: 9999;/*ボタンを最前面に*/
+    z-index: 9999;
     top:5px;
     right: 43px;
     cursor: pointer;

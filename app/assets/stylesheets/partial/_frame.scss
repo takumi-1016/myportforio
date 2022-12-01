@@ -4,6 +4,7 @@
   padding: 20px;
   align-items: center;
 }
+
 .main-frame{
   background-color: white;
   padding: 50px;
@@ -14,13 +15,16 @@
   margin-right: auto;
   max-width: 800px;
 }
+
 @media (max-width: 800px) {
   .background{
     padding: 10px;
   }
+
   .main-frame-top {
     font-size: 4vw;
   }
+  
   .main-frame{
     background-color: white;
     padding: 10px 10px;

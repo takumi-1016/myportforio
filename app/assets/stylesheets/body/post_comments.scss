@@ -9,10 +9,12 @@
   text-align: center;
   font-size: 18px;
 }
+
 .comment-form{
   margin-top: 20px;
   padding: 10px;
 }
+
 .comment-form-item textarea{
   background: #fafafa;
   color: #666;
@@ -28,16 +30,20 @@
   padding: 10px;
   height: 80px;
 }
+
 .comment-checkbox{
   margin: 20px 0px 20px 10px;
 }
+
 .comment-checkbox input{
   transform: scale(1.5);
 }
+
 .comment-form-button{
   margin-top: 10px;
   align-items: center;
 }
+
 .comment-form-button .button{
   background: #000000;
   border: none;
@@ -52,36 +58,43 @@
   transition: background 0.3s ease-in-out;
   width: 100%;
 }
+
 .button:hover {
   background: #de4218;
-  }
+}
 
 .comment{
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 10px;
 }
+
 .comment-like{
   color: black;
 }
+
 .comment-information{
   display: flex;
 }
+
 .comment-member-icon img{
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
+
 .comment-datail{
   align-items: center;
   width: 86%;
 }
+
 .comment-date{
   color: rgb(169, 169, 169);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .comment-member-name{
   color: rgb(169, 169, 169);
   margin-left: 20px;
@@ -92,6 +105,7 @@
   font-size: 20px;
   color: #000000;
 }
+
 .comment-option{
   margin-left: 20px;
   color: rgb(169, 169, 169);
@@ -99,12 +113,14 @@
   align-items: center;
   justify-content: space-between;
 }
+
 .comment-delete button{ 
   border: none;
   background-color: #fff;
   color:rgb(169, 169, 169) ;
   font-size: 16px;
 }
+
 .comment-content{
   margin-left: 40px;
   margin-top: 10px;
@@ -112,11 +128,13 @@
   font-size: 15px;
   word-break: break-all;
 }
+
 .comment-search{
   margin-left: auto;
   margin-right: auto;
   height: 50px;
 }
+
 @media (max-width: 800px) {
   .thread-comment-button .button{
     display: inline-block;
@@ -129,11 +147,13 @@
     text-align: center;
     font-size: 15px;
   }
+
   .comment{
     margin: 0px;
     margin-bottom: 10px;
     padding: 0px;
   }
+
   .comment-form-item input{
     background: #fafafa;
     color: #666;
@@ -142,6 +162,7 @@
     transition: border-color 0.3s;
     width: 100%;
   }
+
   .comment-form-button .button{
     background: #000000;
     border: none;
@@ -157,27 +178,33 @@
     width: 100%;
     margin-top: 20px;
   }
+
   .comment-datail{
     display: inline-block;
   }
+
   .comment-member-name{
     color: rgb(169, 169, 169);
     margin-left: 20px;
     font-size: 10px;
   }
+
   .comment-member-name span{
     font-size:20px;
     color: #000000;
   }
+
   .comment-date{
     color: rgb(169, 169, 169);
     font-size: 13px;
     display: flex;
     align-items: center;
   }
+
   .comment-delete button{
     font-size: 13px;
   }
+  
   .comment-content{
     margin-left: 30px;
     margin-top: 10px;

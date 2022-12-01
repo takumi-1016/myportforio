@@ -7,8 +7,8 @@
 @charset "utf-8";
 .team-profile-icon {
   position: relative;
-
 }
+
 .team-profile-icon img{
   filter: opacity(30%);
   height: 300px;
@@ -30,6 +30,7 @@
   text-shadow: 1px 1px 5px #363636;
   font-weight: bold;
 }
+
 .team-profile {
   position: absolute;
   top:40%;
@@ -43,6 +44,7 @@
   text-align: center;
   font-weight: bold;
 }
+
 .team-profile-edit .button{
   position: absolute;
   top:80%;
@@ -61,24 +63,29 @@
   text-align: center;
   width: 50%;
 }
+
 .team-certificationID{
   font-size: 20px;
   font-weight: bold;
   margin: 20px;
 }
+
 .team-members-title {
   text-align: center;
 }
+
 .team-members {
   display: flex;
   flex-wrap: wrap;
   margin-left: 30px;
 }
+
 .member{
   width: 80px;
   height: 80px;
   margin: 10px;
 }
+
 .member-icon{
   margin-left: 10px;
 }
@@ -89,9 +96,11 @@
   border-radius: 50%;
   object-fit: cover;
 }
+
 .member-name{
   text-align: center;
 }
+
 .member-name {
   font-size: 10px;
   text-align: center;
@@ -104,13 +113,16 @@
   background-color: #FFF;
   flex-flow: column;
 }
+
 .teams-index-title{
   text-align: center;
 }
+
 .teams{
   display: flex;
   flex-wrap: wrap;
 }
+
 .team{
   margin: 20px;
   display: flex;
@@ -119,14 +131,17 @@
   height: 200px;
   align-items: center;
 }
+
 .team-icon-index img{
   width: 150px;
   height: 150px;
   object-fit: cover;
 }
+
 .team-registration{
 padding-left: 10px;
 }
+
 .team-registration .button{
   display: inline-block;
   margin: 10px;
@@ -137,8 +152,8 @@ padding-left: 10px;
   box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
   font-weight: bold;
   border: solid 2px #000000;
-  
 }
+
 .team-name-index {
   font-size:15px;
   color: rgb(0, 0, 0);
@@ -148,6 +163,7 @@ padding-left: 10px;
   text-align: center;
   font-weight: bold;
 }
+
 .teamboardlink{
   background-color:rgb(88, 88, 88);
   color: rgb(255, 255, 255);
@@ -155,31 +171,38 @@ padding-left: 10px;
   text-align: center;
   font-size: 12px;
 }
+
 @media (max-width: 800px) {
   .team-icon-index img{
     width: 100px;
     height: 100px;
     object-fit: cover;
   }
+
   .team-registration{
     display: none;
   }
+
   .team-members {
     display: flex;
     flex-wrap: wrap;
   }
+
   .teams-index-box{
     display: flex;
     background-color: #FFF;
     flex-flow: column;
   }
+
   .teams-index-title{
     text-align: center;
   }
+
   .teams{
     display: flex;
     flex-wrap: wrap;
   }
+
   .team{
     margin: 5px;
     display: flex;
@@ -188,9 +211,11 @@ padding-left: 10px;
     align-items: center;
     height: auto;
   }
+
   .team-members {
     margin-left: 2px;
   }
+
   .member{
     width: 80px;
     height: 80px;
@@ -203,12 +228,15 @@ padding-left: 10px;
     font-weight: bold;
     overflow: hidden
   }
+
   .team-icon-index img{
     object-fit: cover;
   }
+
   .team-registration{
     padding-left: 10px;
   }
+
   .team-registration .button{
     margin: 10px;
     text-decoration: none;
@@ -218,8 +246,8 @@ padding-left: 10px;
     box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
     font-weight: bold;
     border: solid 2px #000000;
-    
   }
+  
   .team-name-index {
     font-size:1rem;
     color: rgb(0, 0, 0);

@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
 }
+
 .first-view-text h1{
   width: 100%;
   max-width: 1200px;
@@ -23,15 +24,18 @@
   font-size: 5vw;
   line-height: 100px;
 }
+
 .introduction{
   max-width: 1200px;
   margin: 60px auto;
 }
+
 .introduction p{
   line-height: 2;
   text-align: center;
   font-weight: bold;
 }
+
 @media (max-width: 800px) {
   .first-view{
     height: calc(100vh - 18px);
@@ -39,15 +43,18 @@
     padding-left: 33px;
     padding-bottom: 0px;
   }
+
   .first-view-text{
     font-size: 15vw;
     line-height: 60px;
     padding-left: 0px;
   }
+
   .introduction{
     padding-left: 20px;
     padding-right: 20px;
   }
+  
   .introduction p{
     text-align: left;
   }
