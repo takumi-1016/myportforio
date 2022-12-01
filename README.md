@@ -12,7 +12,7 @@
 <img width="1440" alt="スクリーンショット 2022-11-30 19 17 54" src="https://user-images.githubusercontent.com/105266085/204770258-143a4df0-087c-41fe-98cc-dba147846b1c.png">
 
 ![giphy](https://user-images.githubusercontent.com/105266085/204940811-2e43c634-8db4-4ed6-9511-a5722d5da7ee.gif)
-
+![giphy-1](https://user-images.githubusercontent.com/105266085/204942031-f901bdbd-e69c-4268-95df-e12ad1fbe32e.gif)
 
 ## 制作の背景
 大学で所属していたアルティメットサークルで使用していた掲示板をもっと便利にしたいと思った。
