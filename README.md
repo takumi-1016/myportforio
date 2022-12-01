@@ -6,9 +6,13 @@
 
 ## URL
 [アルティメット掲示板　URL](https://ultimate-board2.herokuapp.com/)
+＊ゲストログイン機能で簡単にログインできます。
 
 ## イメージ
 <img width="1440" alt="スクリーンショット 2022-11-30 19 17 54" src="https://user-images.githubusercontent.com/105266085/204770258-143a4df0-087c-41fe-98cc-dba147846b1c.png">
+
+![giphy](https://user-images.githubusercontent.com/105266085/204940811-2e43c634-8db4-4ed6-9511-a5722d5da7ee.gif)
+
 
 ## 制作の背景
 大学で所属していたアルティメットサークルで使用していた掲示板をもっと便利にしたいと思った。
